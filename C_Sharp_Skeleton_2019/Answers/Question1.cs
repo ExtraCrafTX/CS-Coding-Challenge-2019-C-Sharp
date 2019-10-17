@@ -10,8 +10,20 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(double initialLevelOfDebt, double interestPercentage, double repaymentPercentage)
         {
-            //TODO: Please work out the solution;
-            return -1;
+            interestPercentage = interestPercentage * 0.01 + 1;
+            repaymentPercentage *= 0.01;
+            double repayment = initialLevelOfDebt * repaymentPercentage;
+            double debt = initialLevelOfDebt;
+            double deposit = initialLevelOfDebt * 0.1;
+            double totalCost = 0;
+            while (debt > repayment)
+            {
+                debt *= interestPercentage;
+                debt -= repayment;
+                totalCost += repayment;
+            }
+            totalCost += debt + deposit;
+            return (int)Math.Round(totalCost);
         }
     }
 }

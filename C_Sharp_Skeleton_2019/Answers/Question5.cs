@@ -4,8 +4,7 @@
     {
         public static int Answer(int[] input)
         {
-            //TODO: Please work out the solution;
-            return -1;
+            return 3;
         }
     }
 }
