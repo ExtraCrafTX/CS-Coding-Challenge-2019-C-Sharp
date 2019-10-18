@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Threading.Tasks;
 
 namespace C_Sharp_Challenge_Skeleton.Answers
 {
@@ -13,16 +9,15 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             interestPercentage = interestPercentage * 0.01 + 1;
             repaymentPercentage *= 0.01;
             double repayment = initialLevelOfDebt * repaymentPercentage;
-            double debt = initialLevelOfDebt;
             double deposit = initialLevelOfDebt * 0.1;
             double totalCost = 0;
-            while (debt > repayment)
+            while (initialLevelOfDebt > repayment)
             {
-                debt *= interestPercentage;
-                debt -= repayment;
+                initialLevelOfDebt *= interestPercentage;
+                initialLevelOfDebt -= repayment;
                 totalCost += repayment;
             }
-            totalCost += debt + deposit;
+            totalCost += initialLevelOfDebt + deposit;
             return (int)Math.Round(totalCost);
         }
     }
