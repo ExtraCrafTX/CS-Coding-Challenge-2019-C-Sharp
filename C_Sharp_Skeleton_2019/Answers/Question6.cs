@@ -6,9 +6,8 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(string[] input)
         {
-            string given = input[0];
-            char start = given[0];
-            char end = given[given.Length - 1];
+            char start = input[0][0];
+            char end = input[0][input[0].Length - 1];
             for (int i = input.Length - 1; i >= 0; i--)
             {
                 string testing = input[i];
