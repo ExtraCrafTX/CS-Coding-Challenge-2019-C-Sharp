@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace C_Sharp_Challenge_Skeleton.Answers
+﻿namespace C_Sharp_Challenge_Skeleton.Answers
 {
     public class Question1
     {
@@ -13,12 +11,11 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             double totalCost = 0;
             while (initialLevelOfDebt > repayment)
             {
-                initialLevelOfDebt *= interestPercentage;
-                initialLevelOfDebt -= repayment;
+                initialLevelOfDebt = initialLevelOfDebt * interestPercentage - repayment;
                 totalCost += repayment;
             }
             totalCost += initialLevelOfDebt + deposit;
-            return (int)Math.Round(totalCost);
+            return (int)(totalCost+0.5);
         }
     }
 }
