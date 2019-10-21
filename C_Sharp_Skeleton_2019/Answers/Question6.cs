@@ -11,7 +11,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             for (int i = input.Length - 1; i >= 0; i--)
             {
                 string testing = input[i];
-                if (testing[0] != start && testing[testing.Length - 1] != end)
+                if (testing[0] != start || testing[testing.Length - 1] != end)
                     continue;
                 return i;
             }
