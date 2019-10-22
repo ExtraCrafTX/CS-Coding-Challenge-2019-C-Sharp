@@ -6,7 +6,12 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(int[] input)
         {
-            return input[0]/3 + 1;
+            if (input[0] > 30)
+                return input[0] / 6;
+            else if (input[0] > 18)
+                return input[0] / 4;
+            else
+                return input[0] / 3 + 1;
         }
     }
 }
