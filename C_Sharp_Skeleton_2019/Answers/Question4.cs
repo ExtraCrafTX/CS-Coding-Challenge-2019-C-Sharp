@@ -6,16 +6,17 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(int[] v, int[] c, int mc)
         {
-            int[] dp = new int[mc + 1];
-            int n = v.Length;
-            for (int i = 0; i < n; i++)
+            Array.Sort(v, c);
+            int total = 0;
+            for(int i = v.Length-1; i >= 0; i--)
             {
-                for (int j = mc; j >= c[i]; j--)
+                if (c[i] < mc)
                 {
-                    dp[j] = Math.Max(dp[j], v[i] + dp[j - c[i]]);
+                    total += v[i];
+                    mc -= c[i];
                 }
             }
-            return dp[mc];
+            return total;
         }
     }
 }
