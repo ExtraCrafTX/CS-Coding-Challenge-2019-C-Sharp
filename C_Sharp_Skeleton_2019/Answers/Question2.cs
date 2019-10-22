@@ -6,18 +6,18 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(int[] risk, int[] bonus, int[] trader)
         {
+            Array.Sort(bonus, risk);
             int total = 0;
             foreach(int skill in trader)
             {
-                int best = 0;
-                for (int i = 0; i < risk.Length; i++)
+                for (int i = risk.Length-1; i >= 0; i--)
                 {
-                    if (best < bonus[i] && risk[i] <= skill)
+                    if (risk[i] <= skill)
                     {
-                        best = bonus[i];
+                        total += bonus[i];
+                        break;
                     }
                 }
-                total += best;
             }
             return total;
         }
