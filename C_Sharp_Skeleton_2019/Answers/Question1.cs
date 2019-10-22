@@ -1,21 +1,20 @@
-﻿namespace C_Sharp_Challenge_Skeleton.Answers
+﻿using System;
+
+namespace C_Sharp_Challenge_Skeleton.Answers
 {
     public class Question1
     {
-        public static int Answer(double initialLevelOfDebt, double interestPercentage, double repaymentPercentage)
+        public static int Answer(double debt, double interest, double repayment)
         {
-            interestPercentage = interestPercentage * 0.01 + 1;
-            repaymentPercentage *= 0.01;
-            double repayment = initialLevelOfDebt * repaymentPercentage;
-            double deposit = initialLevelOfDebt * 0.1;
-            double totalCost = 0;
-            while (initialLevelOfDebt > repayment)
+            interest = interest * 0.01 + 1;
+            repayment = debt * repayment * 0.01;
+            double cost = debt * 0.1;
+            while(debt > repayment)
             {
-                initialLevelOfDebt = initialLevelOfDebt * interestPercentage - repayment;
-                totalCost += repayment;
+                debt = debt * interest - repayment;
+                cost += repayment;
             }
-            totalCost += initialLevelOfDebt + deposit;
-            return (int)(totalCost+0.5);
+            return (int)(cost + debt + 0.5);
         }
     }
 }
