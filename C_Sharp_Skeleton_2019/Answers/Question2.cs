@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace C_Sharp_Challenge_Skeleton.Answers
 {
     public class Question2
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int Answer(int[] risk, int[] bonus, int[] trader)
         {
             Array.Sort(bonus, risk);
