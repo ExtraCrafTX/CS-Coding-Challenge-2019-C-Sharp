@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 
 namespace C_Sharp_Challenge_Skeleton.Answers
 {
@@ -17,15 +16,13 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int maxVal = 0;
             for (int i = alice.Length - 1; i >= 0; i--)
             {
-                int score = alice[i];
-                while (currentS >= 0 && score < scores[currentS])
+                for (int score = alice[i]; currentS >= 0 && score < scores[currentS]; currentPos++)
                 {
                     int lastVal = scores[currentS];
                     while(currentS >= 0 && lastVal == scores[currentS])
                     {
                         currentS--;
                     }
-                    currentPos++;
                 }
                 if (currentPos != lastPos)
                 {
