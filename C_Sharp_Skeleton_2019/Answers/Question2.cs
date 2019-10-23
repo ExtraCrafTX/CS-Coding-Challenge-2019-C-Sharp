@@ -7,14 +7,12 @@ namespace C_Sharp_Challenge_Skeleton.Answers
         public static int Answer(int[] risk, int[] bonus, int[] trader)
         {
             Array.Sort(bonus, risk);
-            Array.Sort(trader);
             int total = 0;
-            int i = risk.Length - 1;
-            for (int t = trader.Length - 1; t >= 0; t--)
+            foreach(int skill in trader)
             {
-                for (; i >= 0; i--)
+                for (int i = risk.Length-1; i >= 0; i--)
                 {
-                    if (risk[i] <= trader[t])
+                    if (risk[i] <= skill)
                     {
                         total += bonus[i];
                         break;
