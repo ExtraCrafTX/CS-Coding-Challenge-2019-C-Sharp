@@ -6,7 +6,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     public class Question3
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int Answer(int[] scores, int[] alice)
+        unsafe public static int Answer(int[] scores, int[] alice)
         {
             Array.Sort(scores);
             Array.Sort(alice);
@@ -16,29 +16,32 @@ namespace C_Sharp_Challenge_Skeleton.Answers
             int count = 0;
             int maxCount = 0;
             int maxVal = 0;
-            for (int i = alice.Length - 1; i >= 0; i--)
+            fixed (int* sp = scores)
             {
-                for (int score = alice[i]; currentS >= 0 && score < scores[currentS]; currentPos++)
+                for (int i = alice.Length - 1; i >= 0; i--)
                 {
-                    int lastVal = scores[currentS];
-                    while(currentS >= 0 && lastVal == scores[currentS])
+                    for (int score = alice[i]; currentS >= 0 && score < sp[currentS]; currentPos++)
                     {
-                        currentS--;
+                        int lastVal = sp[currentS];
+                        while (currentS >= 0 && lastVal == sp[currentS])
+                        {
+                            currentS--;
+                        }
                     }
-                }
-                if (currentPos != lastPos)
-                {
-                    lastPos = currentPos;
-                    count = 1;
-                }
-                else
-                {
-                    count++;
-                }
-                if (count >= maxCount)
-                {
-                    maxCount = count;
-                    maxVal = currentPos;
+                    if (currentPos != lastPos)
+                    {
+                        lastPos = currentPos;
+                        count = 1;
+                    }
+                    else
+                    {
+                        count++;
+                    }
+                    if (count >= maxCount)
+                    {
+                        maxCount = count;
+                        maxVal = currentPos;
+                    }
                 }
             }
             return maxVal;
