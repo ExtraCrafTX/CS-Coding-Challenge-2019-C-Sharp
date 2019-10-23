@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace C_Sharp_Challenge_Skeleton.Answers
 {
     public class Question1
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int Answer(double debt, double interest, double repayment)
         {
             interest = interest * 0.01 + 1;

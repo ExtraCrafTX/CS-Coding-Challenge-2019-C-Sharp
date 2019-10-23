@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace C_Sharp_Challenge_Skeleton.Answers
 {
     public class Question4
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         unsafe public static int Answer(int[] v, int[] c, int mc)
         {
             Array.Sort(v, c);
