@@ -6,7 +6,7 @@ namespace C_Sharp_Challenge_Skeleton.Answers
     {
         public static int Answer(int[] input)
         {
-            return (int)(1.3 * Math.Sqrt(input[0]));
+            return (int)(1.3 * Math.Sqrt(input[0]) + input[0]/250.0);
         }
     }
 }
